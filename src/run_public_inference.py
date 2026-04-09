@@ -13,7 +13,13 @@ def main() -> None:
     df = pd.read_csv(input_path)
     result = predict(df)
 
-    result.to_csv(output_path, index=False, encoding="utf-8-sig")
+    scores = pd.DataFrame(
+        {
+            "predict_proba": result["hallucination_probability"]
+        }
+    )
+
+    scores.to_csv(output_path, index=False, encoding="utf-8-sig")
 
     print("Done.")
     print(f"Input rows: {len(df)}")
