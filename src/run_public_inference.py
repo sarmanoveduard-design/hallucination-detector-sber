@@ -8,7 +8,7 @@ from predict_detector import predict
 def main() -> None:
     root = Path(__file__).resolve().parent.parent
     input_path = root / "data" / "knowledge_bench_public.csv"
-    output_path = root / "data" / "knowledge_bench_public_scores.csv"
+    output_path = root / "data" / "knowledge_bench_private_scores.csv"
 
     df = pd.read_csv(input_path)
     result = predict(df)
